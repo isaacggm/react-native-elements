@@ -150,7 +150,7 @@ export interface SliderProps {
 
 /** Sliders allow users to select a value from a fixed set of values using drag utility.*/
 export const Slider: RneFunctionComponent<SliderProps> = ({
-  allowTouchTrack = false,
+   allowTouchTrack = false,
   animateTransitions,
   animationConfig,
   animationType = 'timing',
@@ -170,9 +170,9 @@ export const Slider: RneFunctionComponent<SliderProps> = ({
   thumbProps,
   thumbStyle,
   thumbTintColor = 'red',
-  thumbTouchSize = { height: THUMB_SIZE, width: THUMB_SIZE },
+  thumbTouchSize = { width: 40, height: 40 },
   trackStyle,
-  value: _propValue = 0,
+  value = 0,
   ...other
 }) => {
   const propValue = getBoundedValue(_propValue, maximumValue, minimumValue);
@@ -603,22 +603,6 @@ export const Slider: RneFunctionComponent<SliderProps> = ({
     </View>
   );
 };
-
-Slider.defaultProps = {
-  value: 0,
-  minimumValue: 0,
-  maximumValue: 1,
-  step: 0,
-  minimumTrackTintColor: '#3f3f3f',
-  maximumTrackTintColor: '#b3b3b3',
-  allowTouchTrack: false,
-  thumbTintColor: 'red',
-  thumbTouchSize: { width: THUMB_SIZE, height: THUMB_SIZE },
-  debugTouchArea: false,
-  animationType: 'timing',
-  orientation: 'horizontal',
-};
-
 const styles = StyleSheet.create({
   containerHorizontal: {
     height: 40,
